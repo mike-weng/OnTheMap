@@ -29,11 +29,15 @@ This view is responsible for authorising and authenticating users from their log
 
 ### List View
 
-This view consists of all the pins created by other users in a list format. Upon loading the screen, all the data will be retrieved using GET query to the server.
+This view consists of all the pins created by other users in a list format. Upon loading the screen, all the data will be retrieved using GET query to the server. For any GET requests, use the taskForGETMethod:, passing in the method call, parameters (excluding the api_key), and a completion handler for the callback method. The method returns an NSURLSessionTask object.
 
 ### Map View
 
+This view consists of a map with the all the pins created by other users. I used the Cocoa MapKit to load pins and set geo-locations on the map. Users can tap on each individual pin to view the link and text data. 
+
 ### Post View
+
+Users can add links and text data along with the geo-location. It will then issue a POST query to upload a JSON format data to the server for other users to view. For POST requests, use the taskForPOSTMethod, passing in the method, parameters, a JSONBody dictionary, which includes the data you wish to pass in the request and also pass in a completion handler. This method returns an NSURLSessionDataTask object.
 
 ## Contributing
 
